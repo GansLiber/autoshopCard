@@ -26,15 +26,24 @@
     </style>
 </head>
 <body>
-<form action="vendor/signin.php" method="post">
+<form action="vendor/signup.php" method="post" enctype="multipart/form-data">
+    <label for="">ФИО</label><br>
+    <input type="text" name="fill_name" placeholder="введите имя"><br>
     <label for="">Логин</label><br>
     <input type="text" name="login" placeholder="введите логин"><br>
+    <label for="">Почта</label><br>
+    <input type="email" name="email" placeholder="введите почту"><br>
+    <label>Аватар</label><br>
+    <input type="file" name="img"><br>
     <label for="">Пароль</label><br>
     <input type="password" name="password" placeholder="введите пароль"><br>
-    <button type="submit ">Войти</button><br>
-    <a href="#"></a>
+    <label for="">Подтверждение пароля</label><br>
+    <input type="password" name="password_confirm" placeholder="подтвердите пароль"><br>
+    <label for="">Адмэн?</label>
+    <input type="checkbox" name="status"><br>
+    <button type="submit">Зарегистрироваться</button><br>
     <p>
-        У вас нет акка? - <a href="register.php">зарегистрируйтесь</a>!
+        У уже есть акк? - <a href="index.php">авторизируйтесь</a>!
     </p>
     <?php
     if ($_SESSION['message']){
@@ -42,6 +51,7 @@
     }
     unset($_SESSION['message']);
     ?>
+
 </form>
 </body>
 </html>

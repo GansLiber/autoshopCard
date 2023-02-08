@@ -11,4 +11,4 @@ $descr = $_POST['description'];
 
 mysqli_query($connect, "UPDATE `cars` SET `brand` = '$brend', `engine_capacity` = '$eng_cap', `price` = '$price', `year_of_drop` = '$year_of_drop', `description` = '$descr' WHERE `cars`.`id` = '$id'");
 
-header('location: /');
+header('location: ../catalog.php');

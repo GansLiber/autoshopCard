@@ -10,4 +10,4 @@ $descr = $_POST['description'];
 
 mysqli_query($connect, "INSERT INTO `cars` (`id`, `brand`, `engine_capacity`, `price`, `year_of_drop`, `description`) VALUES (NULL, '$brend', '$eng_cap', '$price', '$year_of_drop', '$descr')");
 
-header('location: /');
+header('location: ../catalog.php');
