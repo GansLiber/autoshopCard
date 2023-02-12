@@ -1,7 +1,7 @@
 <?php
+    require_once '../config/connect.php';
 
     session_start();
-    require_once '../config/connect.php';
 
     $fill_name = $_POST['fill_name'];
     $login = $_POST['login'];
@@ -9,6 +9,17 @@
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
     $status = $_POST['status'];
+
+//проверка логина на уникальность
+    $users = mysqli_query($connect, "SELECT * FROM users");
+    $users = mysqli_fetch_all($users);
+    foreach ($users as $user) {
+        if ($user[2]===$login){
+            $_SESSION['message'] = 'Такой логин уже зарегистрирован';
+            header('location: ../register.php');
+            die();
+        }
+    }
 
     if ($password === $password_confirm){
         $path = 'uploads/'.time(). $_FILES['img']['name'];
@@ -31,6 +42,8 @@
         header('location: ../register.php');
     }
     ?>
-    <pre>
-        <?= print_r($_POST) ?>
-    </pre>
+<?php
+//echo '<pre>';
+//print_r($users);
+//echo '</pre>';
+////?>

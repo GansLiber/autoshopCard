@@ -1,6 +1,6 @@
 <?php
-
 require_once '../config/connect.php';
+
 
 $id = $_POST['id'];
 $brend = $_POST['brend'];
