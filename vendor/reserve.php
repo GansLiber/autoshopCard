@@ -2,6 +2,10 @@
 require_once '../config/connect.php';
 session_start();
 
+if (!$_SESSION['user']){
+    header('location: /');
+}
+
 $id_user = $_SESSION['user']['id'];
 $id_car = $_GET['id'];
 
